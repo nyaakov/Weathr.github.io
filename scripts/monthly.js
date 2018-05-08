@@ -1,4 +1,4 @@
-window.onload = function(){
+/*window.onload = function(){
      getDate()
  }
 
@@ -9,4 +9,4 @@ window.onload = function(){
      var y = current.getFullYear();
      console.log(y + "-" + (m + 1) + "-" + d)
      return y + "-" + m + "-" + d
- }
+ }*/

@@ -73,8 +73,8 @@
 		<script type="text/javascript" src="./scripts/monthly.js"></script>
 
 		    <!--Add buttons to initiate auth sequence and sign out-->
+            <button id="authorize-button">Authorize</button>
 		    <button id="signout-button">Sign Out</button>
-
 
 		    <script type="text/javascript">
 		      // Client ID and API key from the Developer Console
@@ -88,6 +88,7 @@
 		      // included, separated by spaces.
 		      var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
+              var authorizeButton = document.getElementById('authorize-button');
 		      var signoutButton = document.getElementById('signout-button');
 
 		      /**
@@ -114,6 +115,7 @@
 		          // Handle the initial sign-in state.
 		          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
 		          signoutButton.onclick = handleSignoutClick;
+                  authorizeButton.onclick = handleAuthClick;
 		        });
 		      }
 
@@ -183,10 +185,6 @@
 		          }
 		        });
 		      }
-
-			 window.onload() = function(){
-				handleAuthClick;
-			 }
 
 	    </script>
 
