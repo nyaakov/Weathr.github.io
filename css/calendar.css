@@ -1,0 +1,51 @@
+body {
+    font-family: Verdana, sans-serif;
+}
+
+/* Month header */
+.month {
+    padding: 70px 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+    font-family: Verdana, sans-serif;
+    color: white;
+}
+
+/* Month list */
+.month div {
+    margin: 0;
+    padding: 0;
+}
+
+.month span {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%
+}
+
+th {
+    padding-left: 15px;
+}
+
+.days {
+    padding-left: 4px;
+}
+
+.day{
+    background-color: #E5EBE3;
+    border: solid;
+    border-color: white;
+    padding-bottom: 10px;
+    padding-left: 6px;
+}
+
+button {
+    style: none;
+}
