@@ -26,24 +26,31 @@ body {
 }
 
 table {
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
     table-layout: fixed;
-    width: 100%
 }
 
 th {
+    table-layout: fixed;
     padding-left: 15px;
+    width: 175px;
+
 }
 
-.days {
+.days { /*Row*/
     padding-left: 4px;
+    table-layout: fixed;
 }
 
-.day{
+.day{ /*Each Column*/
     background-color: #E5EBE3;
     border: solid;
     border-color: white;
     padding-bottom: 10px;
     padding-left: 6px;
+    height: 100px;
 }
 
 button {
