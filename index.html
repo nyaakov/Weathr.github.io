@@ -28,9 +28,25 @@
 				<tbody class="days">
 					<tr>
 						<td class="day">
-              <div class = "buttonOnCell"
-                <button id="01" onclick="window.location = 'http://localhost:8000/Documents/Weathr.github.io/daily.html'"> 1 </button></td>
+              <div class = "allInCell">
+                <button id="01" class = "buttonOnCell" onclick="window.location = 'http://localhost:8000/Documents/Weathr.github.io/daily.html'">
+                  <span class = "topOfCell">
+                    <div class = "numberOfDay">
+                      <textarea class = "number">1</textarea>
+                    </div>
+                    <div class = "weatherEmoji">
+                      <img src="/weatherEmoji/raindrop.png" alt="raindrop" class = "emoji">
+                    </div>
+                  </span>
+                  <div class="botOfCell">
+                    <div class="textOfEvent">
+                    </div>
+                    <div class = "clothesEmoji">
+                    </div>
+                  </div>
+                </button>
               </div>
+            </td>
 						<td class="day" id="02"> 2</td>
 						<td class="day" id="03"> 3</td>
 						<td class="day" id="04"> 4</td>

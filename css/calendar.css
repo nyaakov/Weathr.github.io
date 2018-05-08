@@ -36,8 +36,43 @@ th {
     table-layout: fixed;
     padding-left: 15px;
     width: 175px;
-    
+}
 
+.buttonOnCell{
+  width: 100%;
+  height: 100%;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  resize: none;
+}
+.topOfCell{
+  position: relative;
+}
+.numberOfDay{
+  float: left;
+}
+.number{
+  width: 30px;
+  height: 30px;
+  /*border-style: none;
+  border-color: Transparent;
+  overflow: auto;*/
+  background-color: #E5EBE3;
+  resize: none;
+}
+img{
+  max-width: 20px;
+  max-height: 20px;
+  background-size: contain;
+}
+.weatherEmoji{
+  float: right;
 }
 
 .days { /*Row*/
@@ -46,6 +81,7 @@ th {
 }
 
 .day{ /*Each Column*/
+    table-layout: fixed;
     background-color: #E5EBE3;
     border: solid;
     border-color: white;
