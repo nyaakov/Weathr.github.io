@@ -7,10 +7,13 @@
 		<link rel="stylesheet" href=".\css\bootstrap.css"/>
   </head>
   <body>
+        <script type="text/javascript" src=".\scripts\monthly.js"></script>
 			<div class="month" class="container">
-			    <span>August</span>
+                <span style="float: left;"><button class="changeButton" onclick="changeMonth(-1);">&#x3C;</button></span>
+			    <span id="month-name">April</span>
+                <span style="float: right;"><button class="changeButton" onclick="changeMonth(1);">&#x3E;</button></span>
 				<br>
-				<span style="font-size:18px">2018</span>
+				<span id="year" style="font-size:18px">2018</span>
 			</div>
 			<div style="width: 90%; margin-left: 5%;">
 			<table>
@@ -36,7 +39,7 @@
                         <textarea class = "number" readonly>1</textarea>
                       </div>
                       <div class = "weatherEmoji">
-                        <img src="/weatherEmoji/raindrop.png" alt="raindrop" class = "emoji">
+                        <img src="./weatherEmoji/raindrop.png" alt="raindrop" class = "emoji">
                       </div>
                     </span>
                   </div>
@@ -46,7 +49,7 @@
                         <textarea id="01" class = "events" readonly></textarea>
                       </div>
                       <div class = "clothesEmoji">
-                        <img src="/clothesEmoji/tshirt.png" alt="raindrop" class = "emoji">
+                        <img src="./clothesEmoji/tshirt.png" alt="raindrop" class = "emoji">
                       </div>
                     </span>
                   </div>
@@ -98,8 +101,8 @@
 		<script type="text/javascript" src="./scripts/monthly.js"></script>
 
 		    <!--Add buttons to initiate auth sequence and sign out-->
+            <button id="authorize-button">Authorize</button>
 		    <button id="signout-button">Sign Out</button>
-
 
 		    <script type="text/javascript">
 		      // Client ID and API key from the Developer Console
@@ -113,6 +116,7 @@
 		      // included, separated by spaces.
 		      var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
+              var authorizeButton = document.getElementById('authorize-button');
 		      var signoutButton = document.getElementById('signout-button');
 
 		      /**
@@ -138,6 +142,7 @@
 
 		          // Handle the initial sign-in state.
 		          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+                  authorizeButton.onclick = handleAuthClick;
 		          signoutButton.onclick = handleSignoutClick;
 		        });
 		      }
@@ -149,8 +154,10 @@
 		      function updateSigninStatus(isSignedIn) {
 		        if (isSignedIn) {
 		          signoutButton.style.display = 'block';
+                  authorizeButton.style.display = 'none';
 		          listUpcomingEvents();
 		        } else {
+                  authorizeButton.style.display = 'block';
 		          signoutButton.style.display = 'none';
 		        }
 		      }
@@ -208,11 +215,6 @@
 		          }
 		        });
 		      }
-
-			 window.onload() = function(){
-				handleAuthClick;
-			 }
-
 	    </script>
 
 	    <script async defer src="https://apis.google.com/js/api.js"
