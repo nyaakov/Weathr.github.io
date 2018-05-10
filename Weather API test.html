@@ -7,11 +7,13 @@
 </head>
 <body>
 <button id = "getIt" onclick = "gettingJSON()">Get Weather Info</button>
-<p id  = "tempoutput">Temperature: </p>
-<p id = "humidoutput">Humidity: </p>
-<p id = "tempminoutput">Temperature Minimum: </p>
-<p id = "tempmaxoutput">Temperature Maximum: </p>
-<p id = "windspeedoutput">Wind Speed: </p>
+<div id = "box" style="display: none;">
+  <p id  = "tempoutput">Temperature: </p>
+  <p id = "humidoutput">Humidity: </p>
+  <p id = "tempminoutput">Temperature Minimum: </p>
+  <p id = "tempmaxoutput">Temperature Maximum: </p>
+  <p id = "windspeedoutput">Wind Speed: </p>
+</div>
 <script>
     function gettingJSON(){
         $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Philadelphia&units=imperial&APPID=d272907f403c9cc7140556f2320d4326",function(json){
@@ -32,8 +34,7 @@
             tempmin.innerHTML += '&#176 F';
             tempmax.innerHTML += '&#176 F';
             windspeed.innerHTML += ' mph';
-
-
+            document.getElementById('box').style.display = 'block';
         });
     }
 
