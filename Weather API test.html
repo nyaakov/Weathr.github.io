@@ -4,16 +4,20 @@
 <title>Weather</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
+    var myweather;
     function gettingJSON(){
-        document.write("Fuck");
+        document.write("Weather info -> ");
         $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Philadelphia&units=imperial&cnt=7&APPID=d272907f403c9cc7140556f2320d4326",function(json){
             document.write(JSON.stringify(json));
+            myweather = json;
+            temperature = myweather["temp"];
+            document.write(temperature)
         });
     }
 
     </script>
 </head>
 <body>
-<button id = "getIt" onclick = "gettingJSON()">Get JSON</button>
+<button id = "getIt" onclick = "gettingJSON()">Get Weather Info</button>
 </body>
 </html>
