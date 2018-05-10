@@ -7,14 +7,27 @@
 </head>
 <body>
 <button id = "getIt" onclick = "gettingJSON()">Get Weather Info</button>
-<p id  = "output" >Temperature:  </p>
+<p id  = "tempoutput" >Temperature: </p>
+<p id = "humidoutput">Humidity: </p>
+<p id = "tempminoutput">Temperature Minimum: </p>
+<p id = "tempmaxoutput">Temperature Maximum: </p>
+<p id = "windspeedoutput">Wind Speed: </p>
 <script>
     function gettingJSON(){
         $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Philadelphia&units=imperial&cnt=7&APPID=d272907f403c9cc7140556f2320d4326",function(json){
 
-          
-            var x = document.getElementById('output')
-            x.innerHTML += JSON.stringify(json["main"]["temp"]);
+
+            var temperature = document.getElementById('tempoutput')
+            temperature.innerHTML += JSON.stringify(json["main"]["temp"]);
+            var humidity = document.getElementById('humidoutput')
+            humidity.innerHTML+= JSON.stringify(json['main']['humidity'])
+            var tempmin = document.getElementById('tempminoutput')
+            tempmin.innerHTML += JSON.stringify(json["main"]["temp_min"]);
+            var tempmax = document.getElementById('tempmaxoutput')
+            tempmax.innerHTML += JSON.stringify(json["main"]["temp_max"]);
+            var windspeed = document.getElementById('windspeedoutput')
+            windspeed.innerHTML += JSON.stringify(json["wind"]["speed"]);
+
 
         });
     }
