@@ -19,6 +19,10 @@ html, body{
   width: 25%;
   float: left;
 }
+.paragraphHead{
+  font-size:30px;
+
+}
 .box{
   height:25%;
   width:100%;
@@ -32,4 +36,5 @@ html, body{
   float: right;
 }
 .timebox{
+  background-color: #FF7F50;
 }
