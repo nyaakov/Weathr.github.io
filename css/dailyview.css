@@ -30,11 +30,12 @@ html, body{
   text-align: center;
   border-right: 1px solid;
 }
-.right{
+.middle{
   height: 100%;
-  width: 75%;
-  float: right;
+  width: 45%;
+  float:right;
 }
 .timebox{
   background-color: #FF7F50;
+  width: 100%
 }
