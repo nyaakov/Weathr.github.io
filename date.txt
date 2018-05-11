@@ -1,0 +1,26 @@
+<td class="day">
+  <div class = "allInCell">
+    <button class = "buttonOnCell" onclick="window.location = './daily.html'">
+      <div class = "topOfCell">
+        <span>
+          <div class = "numberOfDay">
+            <textarea class = "number" readonly> 1 </textarea>
+          </div>
+          <div class = "weatherEmoji">
+            <img src="./weatherEmoji/raindrop.png" alt="raindrop" class = "emoji">
+          </div>
+        </span>
+      </div>
+      <div class="botOfCell">
+        <span>
+          <div class="textOfEvent">
+            <textarea id="0x0" class = "events" readonly></textarea>
+          </div>
+          <div class = "clothesEmoji">
+            <img src="./clothesEmoji/tshirt.png" alt="raindrop" class = "emoji">
+          </div>
+        </span>
+      </div>
+    </button>
+  </div>
+</td>
