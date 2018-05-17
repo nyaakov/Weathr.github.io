@@ -33,9 +33,22 @@ html, body{
 .middle{
   height: 100%;
   width: 45%;
-  float:right;
+  float: left;
 }
 .timebox{
+  width: 45%;
+}
+.right{
+  height:100%;
+  width: 30%;
+  float: left;
+}
+.calendar{
+  height: 50%;
+  width:100%;
   background-color: #FF7F50;
-  width: 100%
+}
+.events{
+  height: 50%;
+  width: 100%;
 }
