@@ -5,6 +5,10 @@
 		<link rel="stylesheet" href="css\dailyview.css"/>
 		<link rel="stylesheet" href=".\css\bootstrap.css"/>
 		<script src="./scripts/daily.js" type="text/javascript">
+		function onScroll(div){
+			var d1 = document.getElementById('t')
+			d1.scrollTop = div.scrollTop;
+		}
 		</script>
 	</head>
 	<body>
@@ -29,9 +33,25 @@
 				</div>
 			</span>
 		</div>
-		<div class= "middle">
+		<div class= "middle" onscroll="onScroll(this)">
 			<span>
 				<div class="timings">
+					<div> <span> 1:00 </span> AM </div>
+					<div> 1:30 </div>
+					<div> <span> 2:00 </span> AM </div>
+					<div> 2:30 </div>
+					<div> <span> 3:00 </span> AM </div>
+					<div> 3:30 </div>
+					<div> <span> 4:00 </span> AM </div>
+				 	<div> 4:30 </div>
+			    <div> <span> 5:00 </span> AM </div>
+			    <div> 5:30 </div>
+					<div> <span> 6:00 </span> AM </div>
+					<div> 6:30 </div>
+					<div> <span> 7:00 </span> AM </div>
+					<div> 7:30 </div>
+					<div> <span> 8:00 </span> AM </div>
+				 	<div> 8:30 </div>
 			    <div> <span> 9:00 </span> AM </div>
 			    <div> 9:30 </div>
 			    <div> <span> 10:00 </span>AM </div>
@@ -57,20 +77,28 @@
 			    <div> <span> 8:00 </span>PM </div>
 			    <div> 8:30 </div>
 			    <div> <span> 9:00 </span>PM </div>
+					<div> 9:30 </div>
+					<div> <span> 10:00 </span>PM </div>
+			    <div> 10:30 </div>
+					<div> <span> 11:00 </span>PM </div>
+					<div> 11:30 </div>
+					<div> <span> 12:00 </span>AM </div>
+			    <div> 12:30 </div>
   			</div>
 			</span>
 		</div>
-		<div class = "middle2">
-			Have a function here to append events creating divs blah blah
-			ONScroll event to scroll both divs at once when adding full 24hr time
-		</div>
 		<div class = "right">
 			<span>
-				<div class = "calendar">
-					4:30
+				<div class = "calendarContainer">
+					<h2 class = "headers">Calendar</h2>
+					<div class = "calendar">
+					</div
 				</div>
 				<div class = "events">
-					<p>butthello</p>
+					<h2> Events </h2>
+					<div class = "eventContainer">
+						Function inside here to create lists of events
+					</div>
 				</div>
 			</div>
 		</span>

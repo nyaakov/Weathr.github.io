@@ -1,5 +1,6 @@
 html, body{
   height: 100%;
+  overflow: scroll;
 }
 .buttonLeft{
   height: 20%;
@@ -32,16 +33,8 @@ html, body{
 }
 .middle{
   height: 100%;
-  width: 10%;
+  width: 45%;
   float: left;
-  overflow: scroll;
-}
-.middle2{
-  padding-top: 10px;
-  padding-left: 10px;
-  height: 100%;
-  width: 35%;
-  float:left;
   overflow: scroll;
 }
 .timebox{
@@ -52,14 +45,27 @@ html, body{
   width: 30%;
   float: left;
 }
-.calendar{
+.calendarContainer{
   height: 50%;
   width:100%;
   background-color: #FF7F50;
 }
-.events{
-  height: 50%;
+.calendar{
   width: 100%;
+  height: 90%;
+  background-color: #FFF;
+}
+.headers{
+  height: 10%;
+  width: 100%;
+  font-size: 24px;
+}
+.events{
+  height: 100%;
+  width: 100%;
+}
+h2{
+  text-align: center;
 }
 .timings {
   text-align: left;
@@ -78,4 +84,9 @@ html, body{
 .timings span {
   font-size: 200%;
   color: #696969;
+}
+.eventContainer{
+  text-align: center;
+  height: 90%;
+  width: 90%;
 }
