@@ -10,12 +10,37 @@ window.onload = function(){
     setYear(d[2]);
     var secs = 0;
     var id = setInterval(function(){
-        secs++; console.log(secs);
+        secs++;
       if(secs> 1){
         clearInterval(id);
         createDays();
-       }
+    }
    }, 1000);
+   gettingJSON();
+}
+
+
+function gettingJSON(){
+    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Philadelphia&units=imperial&APPID=d272907f403c9cc7140556f2320d4326",function(json){
+
+        var temperature = document.getElementById('tempoutput')
+        temperature.innerHTML += JSON.stringify(json["main"]["temp"]);
+        var humidity = document.getElementById('humidoutput');
+        humidity.innerHTML+= JSON.stringify(json['main']['humidity'])
+        var tempmin = document.getElementById('tempminoutput')
+        tempmin.innerHTML += JSON.stringify(json["main"]["temp_min"]);
+        var tempmax = document.getElementById('tempmaxoutput')
+        tempmax.innerHTML += JSON.stringify(json["main"]["temp_max"]);
+        var windspeed = document.getElementById('windspeedoutput')
+        windspeed.innerHTML += JSON.stringify(json["wind"]["speed"]);
+        temperature.innerHTML += '&#176 F';
+        humidity.innerHTML += '%';
+        tempmin.innerHTML += '&#176 F';
+        tempmax.innerHTML += '&#176 F';
+        windspeed.innerHTML += ' mph';
+        document.getElementById('box').style.display = 'block';
+
+    });
 }
 
 function readTextFile(){
@@ -31,8 +56,6 @@ function createDays(){
     var monthYear = currentMonthYear();
     var days = document.getElementById('days');
     var day = new Date(monthYear[1], monthYear[0], 1).getDay();
-    console.log("starting date is: " + day);
-    console.log("starting date is: " + monthYear[0] + " " + monthYear[1]);
     var temp = "";
     var text = readTextFile();
     temp += "<tr>";
@@ -58,7 +81,6 @@ function createDays(){
             month_str = "0" + month_str;
         }
         temp += text.replace('1', k+1).replace('0x0', monthYear[1] + "-" + month_str + "-" + day_str);
-        console.log(temp);
 
     }
 
@@ -111,6 +133,7 @@ function changeMonth(dir){
     }
 
     createDays();
+    listUpcomingEvents();
 }
 
 function setMonth(m){
@@ -123,7 +146,6 @@ function setYear(y){
 
  function getDate(){
      var current = new Date();
-     console.log(current);
      var d = current.getDate();
      var m = current.getMonth();
      var y = current.getFullYear();
