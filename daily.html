@@ -4,12 +4,6 @@
 		<title>Daily Schedule</title>
 		<link rel="stylesheet" href="css\dailyview.css"/>
 		<link rel="stylesheet" href=".\css\bootstrap.css"/>
-		<script src="./scripts/daily.js" type="text/javascript">
-		function onScroll(div){
-			var d1 = document.getElementById('t')
-			d1.scrollTop = div.scrollTop;
-		}
-		</script>
 	</head>
 	<body>
 		<div class= "left">
@@ -17,11 +11,18 @@
 				<div id = "datebox" class = "box">
 					<button onclick="a()" class = "buttonLeft">Go Back</button>
 					<h1 class = "paragraphHead">Current Date</h1>
-					<p id = "date" class = "paragraph">temp</p>
+					<p id = "dateWord">tee</p>
+					<p id = "date">temp</p>
 				</div>
 				<div id = "weatherbox" class = "box">
 					<h1 class = "paragraphHead">Weather Data</h1>
-					<p id = "weather" class = "paragraph">temp2</p>
+					<div id = "box">
+						<p id = "tempoutput">Temperature: </p>
+						<p id = "humidoutput">Humidity: </p>
+						<p id = "tempminoutput">Temperature Low: </p>
+						<p id = "tempmaxoutput">Temperature High: </p>
+						<p id = "windspeedoutput">Wind Speed: </p>
+					</div>
 				</div>
 				<div id= "notificationbox" class = "box">
 					<h1 class = "paragraphHead">Notifications</h1>
@@ -29,11 +30,11 @@
 				</div>
 				<div id= "clothesbox" class = "box">
 					<h1 class = "paragraphHead">Clothing Recommendations</h1>
-					<p id = "clothes" class = "paragraph">temp4</p>
+					<p id = "clothes" class = "paragraph">Bugfix on monthly view, click certain day go to that specific day, localstorage</p>
 				</div>
 			</span>
 		</div>
-		<div class= "middle" onscroll="onScroll(this)">
+		<div class= "middle">
 			<span>
 				<div class="timings">
 					<div> <span> 1:00 </span> AM </div>
@@ -90,17 +91,48 @@
 		<div class = "right">
 			<span>
 				<div class = "calendarContainer">
-					<h2 class = "headers">Calendar</h2>
-					<div class = "calendar">
-					</div
+					<div class="month" class="container">
+							<span style="float: left;"><button class="changeButton" onclick="changeMonth(-1);">&#x3C;</button></span>
+							<span id="month-name">May</span>
+							<span style="float: right;"><button class="changeButton" onclick="changeMonth(1);">&#x3E;</button></span>
+						<br>
+						<span id="year" style="font-size:18px">2018</span>
+					</div>
+					<div class = "calendar" style="width: 90%; margin-left: 5%;">
+						<table>
+							<thead>
+								<tr class="weekdays">
+			            <th>S</th>
+									<th>M</th>
+									<th>T</th>
+									<th>W</th>
+									<th>T</th>
+									<th>F</th>
+									<th>S</th>
+								</tr>
+							</thead>
+							<tbody class="days" id="days">
+							</tbody>
+						</table>
+					</div>
 				</div>
 				<div class = "events">
 					<h2> Events </h2>
 					<div class = "eventContainer">
-						Function inside here to create lists of events
+						<div class = "eventDiv">
+							<p id = "eventText"></p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</span>
+		<script async defer src="https://apis.google.com/js/api.js"
+			onload="this.onload=function(){};handleClientLoad();"
+			onreadystatechange="if (this.readyState === 'complete') this.onload()">
+		</script>
+		<script type="text/javascript" src=".\scripts\daily.js"></script>
+		<script src="./scripts/daily.js" type="text/javascript">
+		</script>
+
 	</body>
 </html>

@@ -128,6 +128,7 @@
 		       */
         function appendPre(message, when) {
 	        var pre = document.getElementById(when.slice(0, 10));
+          console.log(when,message);
 	     	pre.innerHTML += message + '\n';
 	      }
 
@@ -168,6 +169,8 @@
      		              }
                           console.log("y: " + y + "m: " + m + "when: " + when);
                           if (y == when.slice(0, 4) && m == when.slice(5,7)){
+                            localStorage.setItem("events",event.summary);
+                            localStorage.setItem("when",when);
      		                   appendPre(event.summary, when);
                            } else {
                                break;
