@@ -21,7 +21,7 @@ window.onload = function(){
 
 
 function gettingJSON(){
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Philadelphia&units=imperial&APPID=d272907f403c9cc7140556f2320d4326",function(json){
+    $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=Philadelphia&units=imperial&APPID=d272907f403c9cc7140556f2320d4326",function(json){
 
         var temperature = document.getElementById('tempoutput')
         temperature.innerHTML += JSON.stringify(json["main"]["temp"]);
