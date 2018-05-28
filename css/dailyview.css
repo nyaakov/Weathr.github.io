@@ -100,6 +100,7 @@ td{
   height: 100%;
 }
 .buttonOnCell{
+  z-index: 1;
   width: 100%;
   height: 100%;
   display:block;
@@ -216,4 +217,22 @@ h2{
 #eventText{
   width: 100%;
   height: 100%;
+}
+#tempoutput{
+  height: 8%;
+}
+#humidoutput{
+  height: 8%;
+}
+#tempminoutput{
+  height: 8%;
+}
+#tempmaxoutput{
+  height: 8%;
+}
+#windspeedoutput{
+  height: 8%;
+}
+#clothingHeader{
+  font-size: 20px;
 }
