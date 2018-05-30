@@ -4,29 +4,30 @@
 		<title>Daily Schedule</title>
 		<link rel="stylesheet" href="css\dailyview.css"/>
 		<link rel="stylesheet" href=".\css\bootstrap.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	</head>
 	<body>
 		<div class= "left">
 			<span>
 				<div id = "datebox" class = "box">
-					<button onclick="a()" class = "buttonLeft">Go Back</button>
+					<button onclick="window.location = './index.html'" class = "buttonLeft">Go Back</button>
 					<h1 class = "paragraphHead">Current Date</h1>
 					<p id = "dateWord">tee</p>
 					<p id = "date">temp</p>
 				</div>
 				<div id = "weatherbox" class = "box">
 					<h1 class = "paragraphHead">Weather Data</h1>
-					<div id = "box">
-						<p id = "tempoutput">Temperature: </p>
-						<p id = "humidoutput">Humidity: </p>
-						<p id = "tempminoutput">Temperature Low: </p>
-						<p id = "tempmaxoutput">Temperature High: </p>
-						<p id = "windspeedoutput">Wind Speed: </p>
+					<div id = "weather-data">
+						<p id = "temp-out">Temperature: </p>
+						<p id = "humid-out">Humidity: </p>
+						<p id = "temp-min-out">Temperature Low: </p>
+						<p id = "temp-max-out">Temperature High: </p>
+						<p id = "windspeed-out">Wind Speed: </p>
 					</div>
 				</div>
 				<div id= "notificationbox" class = "box">
 					<h1 class = "paragraphHead">Notifications</h1>
-					<p id = "notification" class = "paragraph">temp3</p>
+					<p id = "notification" class = "paragraph"></p>
 				</div>
 				<div id= "clothesbox" class = "box">
 					<h1 id = "clothingHeader" class = "paragraphHead">Clothing Recommendations</h1>
@@ -126,10 +127,6 @@
 				</div>
 			</div>
 		</span>
-		<script async defer src="https://apis.google.com/js/api.js"
-			onload="this.onload=function(){};handleClientLoad();"
-			onreadystatechange="if (this.readyState === 'complete') this.onload()">
-		</script>
 		<script type="text/javascript" src=".\scripts\daily.js"></script>
 		<script src="./scripts/daily.js" type="text/javascript">
 		</script>

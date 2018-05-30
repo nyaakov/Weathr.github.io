@@ -21,8 +21,9 @@ window.onload = function(){
 
 function gettingJSON(){
     $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=Philadelphia&units=imperial&APPID=d272907f403c9cc7140556f2320d4326",function(json){
-
-        var temperature = document.getElementById('tempoutput')
+        var temp = document.getElementById('weathr');
+        temp.innerHTML = JSON.stringify(json["main"]["temp"]) + " &#176F";
+        var temperature = document.getElementById('tempoutput');
         temperature.innerHTML += JSON.stringify(json["main"]["temp"]);
         var humidity = document.getElementById('humidoutput');
         humidity.innerHTML+= JSON.stringify(json['main']['humidity'])
@@ -32,13 +33,11 @@ function gettingJSON(){
         tempmax.innerHTML += JSON.stringify(json["main"]["temp_max"]);
         var windspeed = document.getElementById('windspeedoutput')
         windspeed.innerHTML += JSON.stringify(json["wind"]["speed"]);
-        temperature.innerHTML += '&#176 F';
+        temperature.innerHTML += ' &#176F';
         humidity.innerHTML += '%';
-        tempmin.innerHTML += '&#176 F';
-        tempmax.innerHTML += '&#176 F';
+        tempmin.innerHTML += ' &#176F';
+        tempmax.innerHTML += ' &#176F';
         windspeed.innerHTML += ' mph';
-        document.getElementById('box').style.display = 'block';
-
     });
 }
 
@@ -53,17 +52,22 @@ function readTextFile(){
 function createDays(){
     // lots of editing to this -- should add days from last month
     var monthYear = currentMonthYear();
+    console.log(monthYear);
     var days = document.getElementById('days');
     var day = new Date(monthYear[1], monthYear[0], 1).getDay();
     var temp = "";
     var text = readTextFile();
     temp += "<tr>";
 
-    for (var i = 0; i < day; i++){
-        temp += "<td class='day'>" + (i+1) + "</td>";
+    for (var i = month_list[monthYear[0]-1][1]-day; i < month_list[monthYear[0]-1][1]; i++){
+        var month_str = monthYear[0].toString();
+        if (monthYear[0]-1 < 9){
+            month_str = "0" + month_str;
+        }
+        temp += text.replace('1', i+1).replace('0x0', monthYear[1] + "-" + month_str + "-" + (i+1));
     }
 
-    var sevens = i-1;
+    var sevens = day-1;
 
     for (var k = 0; k < month_list[monthYear[0]][1]; k++){
         sevens += 1;
@@ -84,8 +88,14 @@ function createDays(){
     }
 
     day = new Date(monthYear[1], monthYear[0], month_list[monthYear[0]][1]).getDay();
+
     for (var j = 0; j < 6-day; j++){
-        temp += "<td class='day'>" + (j+1) + "</td>";
+        var day_str = "0" + (j+1)
+        var month_str = (monthYear[0]+2) + "";
+        if (monthYear[0] < 9){
+            month_str = "0" + month_str;
+        }
+        temp += text.replace('1', j+1).replace('0x0', monthYear[1] + "-" + month_str + "-" + day_str);
     }
 
     temp += "</tr>";

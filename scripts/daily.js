@@ -6,6 +6,7 @@ var d;
 window.onload = function(){
     displayEvents();
     d = getDate(); /*day month year*/
+    console.log(d[0]);
     var theDate = document.getElementById("date");
     setMonth(d[1]);
     setYear(d[2]);
@@ -19,9 +20,11 @@ window.onload = function(){
       if(secs> 1){
         clearInterval(id);
         createDays();
+        changeit(parseInt(new Date().getDate()+1));
     }
    }, 1000);
    gettingJSON();
+   loadNotifications();
 }
 
 function changeit(day){
@@ -30,37 +33,83 @@ function changeit(day){
   data = currentMonthYear()
   month = document.getElementById("month-name").innerHTML;
   year = document.getElementById("year").innerHTML
-  dateCurrent.innerHTML = String(data[0]) + "/" + String(day) + "/" +String(data[1]);
-  dateCurrentWord.innerHTML = month +" " +day + ", " + year;
+  dateCurrent.innerHTML = String(data[0]+1) + "/" + String(day) + "/" +String(data[1]);
+  dateCurrentWord.innerHTML = month +" " + day + ", " + year;
 
+  data[0] += 1;
+  if (data[0] < 10){
+      data[0] = "0" + data[0];
+  }
+
+  if (day < 10){
+      day = "0" + day;
+  }
+  loadEvents(String(data[1]) + "-" + String(data[0]) + "-" + String(day));
+  console.log(String(data[1]) + "-" + String(data[0]) + "-" + String(day));
 }
 
+function loadEvents(date){
+    console.log(date)
+    document.getElementById("eventText").innerHTML = ""
+    var when = localStorage.getItem("when").split(",");
+    var details = localStorage.getItem("events").split(",");
+    for (var i = 0; i < localStorage.getItem("when").length; i++) {
+        if (when[i] != 'undefined'){
+            if (when[i].slice(0, 10) == String(date)){
+                console.log(when[i])
+                document.getElementById("eventText").innerHTML += details[i] + "<br>";
+            }
+        }
+    }
+}
+
+function loadNotifications(){
+    d = new Date()
+    var when = localStorage.getItem("when").split(",");
+    var details = localStorage.getItem("events").split(",");
+    for (var i = 0; i < localStorage.getItem("when").length; i++) {
+        var month = d.getMonth() + 1;
+        if (month < 10){
+            month = "0" + month;
+        }
+        var day = d.getDate();
+        if (day < 10){
+            day = "0" + day;
+        }
+        var hour = d.getHours();
+        if (hour < 10){
+            hour = "0" + day;
+        }
+        console.log(when[i].slice(11, 13))
+        if (when[i].slice(0, 10) == (String(d.getFullYear()) + "-" + month + "-" + day)){
+            if (when[i].slice(11, 13) == String(hour))
+                document.getElementById("notification").innerHTML += details[i] + "<br>";
+        }
+    }
+}
 
 function gettingJSON(){
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Philadelphia&units=imperial&APPID=d272907f403c9cc7140556f2320d4326",function(json){
 
-        var temperature = document.getElementById('tempoutput')
+        var temperature = document.getElementById('temp-out')
         temperature.innerHTML += JSON.stringify(json["main"]["temp"]);
-        var humidity = document.getElementById('humidoutput');
+        var humidity = document.getElementById('humid-out');
         humidity.innerHTML+= JSON.stringify(json['main']['humidity'])
-        var tempmin = document.getElementById('tempminoutput')
+        var tempmin = document.getElementById('temp-min-out')
         tempmin.innerHTML += JSON.stringify(json["main"]["temp_min"]);
-        var tempmax = document.getElementById('tempmaxoutput')
+        var tempmax = document.getElementById('temp-max-out')
         tempmax.innerHTML += JSON.stringify(json["main"]["temp_max"]);
-        var windspeed = document.getElementById('windspeedoutput')
+        var windspeed = document.getElementById('windspeed-out')
         windspeed.innerHTML += JSON.stringify(json["wind"]["speed"]);
         temperature.innerHTML += '&#176 F';
         humidity.innerHTML += '%';
         tempmin.innerHTML += '&#176 F';
         tempmax.innerHTML += '&#176 F';
         windspeed.innerHTML += ' mph';
-        document.getElementById('box').style.display = 'block';
+        document.getElementById('weatherbox').style.display = 'block';
 
     });
 }
-
-
-
 
 function readTextFile(){
     var xmlhttp;
@@ -100,7 +149,6 @@ function createDays(){
             month_str = "0" + month_str;
         }
         temp += text.replace(/1/g, k+1).replace('0x0', monthYear[1] + "-" + month_str + "-" + day_str);
-
     }
 
     day = new Date(monthYear[1], monthYear[0], month_list[monthYear[0]][1]).getDay();
@@ -152,7 +200,6 @@ function changeMonth(dir){
     }
 
     createDays();
-    listUpcomingEvents();
 }
 
 function setMonth(m){

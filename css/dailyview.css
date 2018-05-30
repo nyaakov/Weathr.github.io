@@ -12,6 +12,10 @@ html, body{
   font-size: 24px;
   font-family: "Arial";
 }
+
+.buttonLeft:hover{
+    cursor: pointer;
+}
 .buttonLeft:active:focus{
   outline: none;
 }
@@ -23,6 +27,9 @@ html, body{
 .paragraphHead{
   font-size:30px;
   height: 20%
+}
+#notificationbox{
+    margin-top: 50px;
 }
 .box{
   height:25%;

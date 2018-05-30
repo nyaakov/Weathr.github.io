@@ -18,6 +18,11 @@ body {
     padding: 0;
 }
 
+#details #weathr-box:hover + #box{
+    display: block;
+    background-color: black;
+}
+
 .month span {
     color: white;
     font-size: 20px;
