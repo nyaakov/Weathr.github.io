@@ -120,8 +120,8 @@ th {
 }
 .events{
   overflow: hidden;
-  /*border-style: none;
-  border-color: Transparent;*/
+  border-style: none;
+  border-color: Transparent;
   background-color: #E5EBE3;
   resize: none;
 }

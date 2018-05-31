@@ -20,7 +20,7 @@ window.onload = function(){
 }
 
 function gettingJSON(){
-    
+
     $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=Philadelphia&units=imperial&APPID=d272907f403c9cc7140556f2320d4326",function(json){
         var temp = document.getElementById('weathr');
         temp.innerHTML = JSON.stringify(json["main"]["temp"]) + " &#176F";
@@ -144,6 +144,7 @@ function changeMonth(dir){
 
     createDays();
     listUpcomingEvents();
+    console.log("line 147");
 }
 
 function setMonth(m){

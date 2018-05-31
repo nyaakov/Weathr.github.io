@@ -152,7 +152,6 @@
               if (m < 10){
                   m = "0" + m.toString();
               }
-
               var lastMonth = current[0]-1;
               if (lastMonth < 10){
                   lastMonth = "0" + lastMonth;
@@ -169,7 +168,7 @@
                   clearInterval(id);
      		        gapi.client.calendar.events.list({
      		          'calendarId': 'primary',
-     		          'timeMin': (new Date(current[1], lastMonth, month_list[current[0]-1][1]-day, 0, 0, 0)).toISOString(),
+     		          'timeMin': (new Date(current[1], lastMonth, month_list[current[0]][1]-day, 0, 0, 0)).toISOString(),
      		          'showDeleted': false,
      		          'singleEvents': true,
      		          'maxResults': 100,
@@ -217,13 +216,13 @@
           var year = document.getElementById('year').innerHTML;
           var m;
 
-          for (m = 0; m <= 12; m++){
+          for (m = 0; m < 12; m++){
               if (month_list[m][0] == month){
                   return [m, year];
               }
           }
       }
-        </script>
+       </script>
 
         <script async defer src="https://apis.google.com/js/api.js"
           onload="this.onload=function(){};handleClientLoad();"

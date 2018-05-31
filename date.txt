@@ -7,7 +7,7 @@
             <textarea class = "number" readonly> 1 </textarea>
           </div>
           <div class = "weatherEmoji">
-            <img src="./weatherEmoji/raindrop.png" alt="raindrop" class = "emoji">
+            <img src="./weatherEmoji/blank.png" alt="raindrop" class = "emoji">
           </div>
         </span>
       </div>
@@ -17,7 +17,7 @@
             <textarea id="0x0" class = "events" readonly></textarea>
           </div>
           <div class = "clothesEmoji">
-            <img src="./clothesEmoji/tshirt.png" alt="raindrop" class = "emoji">
+            <img src="./clothesEmoji/blank.png" alt="raindrop" class = "emoji">
           </div>
         </span>
       </div>
