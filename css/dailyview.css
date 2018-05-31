@@ -26,13 +26,10 @@ html, body{
 }
 .paragraphHead{
   font-size:30px;
+  text-align: center;
   height: 20%
 }
-#notificationbox{
-    margin-top: 50px;
-}
 .box{
-  height:25%;
   width:100%;
   background: #FFF;
   text-align: center;
@@ -42,7 +39,8 @@ html, body{
   height: 100%;
   width: 45%;
   float: left;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .timebox{
   width: 45%;
@@ -121,23 +119,6 @@ td{
   -moz-box-shadow: none;
   resize: none;
 }
-
-#box{/*Box for weather data*/
-    font-size: 10px;
-    height: 80%;
-    padding-left: 15px;
-    text-align: left;
-}
-
-#date{
-  font-size: 24px;
-  height: 40%;
-}
-#dateWord{
-  height: 20%;
-  width: 100%;
-  font-size:30px;
-}
 .number{ /*TextArea*/
   width: 100%;
   height: 100%;
@@ -214,13 +195,19 @@ h2{
   padding-left: 5%;
   padding-right: 5%;
   text-align: center;
-  height: 100%;
+  height: 95%;
   width: 100%;
 }
 .eventDiv{
   width: 100%;
   height: 100%;
 }
+.createableDiv{
+  width: 100%;
+  height:10%;
+
+}
+
 #eventText{
   width: 100%;
   height: 100%;
@@ -242,4 +229,32 @@ h2{
 }
 #clothingHeader{
   font-size: 20px;
+}
+#datebox{
+  height: 25%;
+}
+#date{
+  font-size: 20px;
+  height: 20%;
+}
+#dateWord{
+  height: 20%;
+  width: 100%;
+  font-size:24px;
+}
+#weatherbox{/*Box for weather data*/
+    font-size: 10px;
+    height: 30%;
+    padding-left: 15px;
+    text-align: left;
+}
+#weather-data{
+  text-align: center;
+  font-size: 13px;
+}
+#notificationbox{
+    height: 25%;
+}
+#clothesbox{
+  height: 20%;
 }
