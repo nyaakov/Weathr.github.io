@@ -259,14 +259,3 @@ h2{
 #clothesbox{
   height: 20%;
 }
-#eventhead{
-  height: 5%;
-}
-#eventName{
-  float: left;
-  width: 60%;
-}
-#eventTime{
-  float: right;
-  width: 30%
-}
